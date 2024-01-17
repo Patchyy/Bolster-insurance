@@ -1,0 +1,36 @@
+{
+  "shipments": [
+    {
+      "id": "1",
+      "origin-country": "Amsterdam ",
+      "origin-address": "5611 AT, Eindhoven, Vrijstraat 9 C/D",
+      "origin-house": "detached-house",
+      "destination-country": "United States",
+      "destination-address": "New York, New York(NY), 10026",
+      "destination-house": "Villa",
+      "adults": "2",
+      "children": "2",
+      "value": "€ 1.5000,-"
+    }
+  ],
+  "specialitems": [
+    {
+      "id": "1",
+      "item-name": "Windsor chair",
+      "item-desc": "Antique Windsor chair from the 19th century with a unique patina. Curved frame and seat in solid oak with turned side posts and legs.",
+      "replacment-value": "€ 450,-",
+      "condition": "Perfect condition",
+      "year-of-purchase": "2007",
+      "shipmentId": "1"
+    },
+    {
+      "id": "2",
+      "item-name": "Lego collection",
+      "item-desc": "Een LEGO-collectie bestaande uit iconische Star Wars-sets, gedetailleerde architecturale meesterwerken zoals de LEGO Creator Expert-lijn, en creatieve thema's zoals de LEGO Ideas-serie. Deze verzameling omvat ook zeldzame en exclusieve sets, waardoor het een waardevolle toevoeging is voor zowel fans als verzamelaars.",
+      "replacment-value": "€ 6550,-",
+      "condition": "Perfect condition",
+      "year-of-purchase": "",
+      "shipmentId": "1"
+    }
+  ]
+}

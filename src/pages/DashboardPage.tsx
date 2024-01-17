@@ -6,10 +6,10 @@ const dashboard = () => {
       <nav>
         <ul>
           <li>
-            <Link to={`/dashboard/1`}>Your Name</Link>
+            <Link to={`/dashboard/1`}>Shipment 1</Link>
           </li>
           <li>
-            <Link to={`/dashboard/2`}>Your Friend</Link>
+            <Link to={`/dashboard/2`}>Shipment 2</Link>
           </li>
         </ul>
       </nav>

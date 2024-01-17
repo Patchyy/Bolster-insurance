@@ -1,27 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Homepage from './pages/HomePage';
+import HomePage from './pages/HomePage';
 import ErrorPage from './pages/ErrorPage';
-import Form from './pages/FormPage';
-import Dashboard from './pages/DashboardPage';
+import FormPage from './pages/FormPage';
+import DashboardPage from './pages/DashboardPage';
 import './Styles.css';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Homepage />,
+    element: <HomePage />,
     errorElement: <ErrorPage />,
   },
   {
     path: '/dashboard',
-    element: <Dashboard />,
+    element: <DashboardPage />,
     children: [
       {
         path: ':shipmentId',
-        element: <Form />,
+        element: <DashboardPage />,
       },
     ],
+  },
+  {
+    path: '/formulier',
+    element: <FormPage />,
   },
 ]);
 
