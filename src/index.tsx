@@ -4,7 +4,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ErrorPage from './pages/ErrorPage';
 import FormPage from './pages/FormPage';
-import DashboardPage from './pages/DashboardPage';
+import DashboardPage from './pages/Dashboard/Dashboard.view';
+import DashboardDetailPage from './pages/Dashboard/DashboardDetail.view';
+import DashboardOverviewPage from './pages/Dashboard/DashboardOverview.view';
 import './Styles.css';
 
 const router = createBrowserRouter([
@@ -18,8 +20,12 @@ const router = createBrowserRouter([
     element: <DashboardPage />,
     children: [
       {
-        path: ':shipmentId',
-        element: <DashboardPage />,
+        path: '/dashboard/overview',
+        element: <DashboardOverviewPage />,
+      },
+      {
+        path: '/dashboard/overview/:shipmentId',
+        element: <DashboardDetailPage />,
       },
     ],
   },
