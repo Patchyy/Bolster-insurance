@@ -12,9 +12,10 @@ const DashboardPage = () => {
   }, []);
 
   return (
-    <div id="shipments" className="bg-white-off h-screen">
-      <h1>Dashboard</h1>
-      <Outlet />
+    <div id="shipments" className="bg-white-off h-screen ">
+     
+      <Outlet  />
+      
     </div>
   );
 };
