@@ -25,7 +25,7 @@ const DashboardOverviewPage = () => {
       <h1>Overview</h1>
       <Link to="/dashboard/overview/1">Example detail page</Link>
 
-      {/* <div className="header bg-blue-dark w-full h-56"></div>
+      <div className="header bg-blue-dark w-full h-56"></div>
       <div className="xl:container md:mx-auto bg-white h-full">
         <div className="flex flex-row">
           <div className="basis-4/12">
@@ -85,7 +85,7 @@ const DashboardOverviewPage = () => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
