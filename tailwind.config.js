@@ -11,6 +11,10 @@ module.exports = {
       black: '#000000',
       'white-off': '#F9F7F3',
     },
+    fontFamily: {
+      roboto: ['Roboto', 'sans-serif'],
+      spoof: ['Spoof', 'sans-serif'],
+    },
     extend: {},
   },
   plugins: [],
