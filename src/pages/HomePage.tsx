@@ -6,11 +6,8 @@ const Homepage = () => {
     <>
       <h1>Homepage</h1>
       <div id="btn-container">
-        <Button type="default" onClick={() => console.log('hoi')}>
-          {/* <Link to={`/formulier`}>Calculate</Link> */}
-          <p>hoi</p>
-        </Button>
-        <Link to={`/dashboard`}>Dashboard</Link>
+        <Link to={`/formulier`}>Formulier</Link>
+        <p>hoi</p>
       </div>
     </>
   );

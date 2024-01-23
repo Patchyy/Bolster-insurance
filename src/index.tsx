@@ -8,7 +8,7 @@ import DashboardPage from './pages/Dashboard/Dashboard.view';
 import DashboardDetailPage from './pages/Dashboard/DashboardDetail.view';
 import DashboardOverviewPage from './pages/Dashboard/DashboardOverview.view';
 import './Styles.css';
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/datepicker.min.js"></script>
 
 
 const router = createBrowserRouter([
