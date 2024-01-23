@@ -4,11 +4,13 @@
 
 @font-face {
   font-family: 'Spoof';
-  src: url('./assets/Fonts/Spoof-Regular.ttf') format('ttf');
+  src: url('./assets/fonts/Spoof-Regular.ttf') format('ttf');
   /* Voeg extra src-verklaringen toe voor verschillende lettertypeformaten */
   font-weight: normal;
   font-style: normal;
 }
+
+
 
 * {
   margin: 0;
@@ -21,7 +23,7 @@ body,
 #root {
   height: 100%;
   min-height: 100vh;
-  background-color: theme('colors.white-off')
+  background-color: theme('colors.white-off');
 }
 
 button {

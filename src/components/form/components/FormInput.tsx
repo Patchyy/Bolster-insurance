@@ -13,7 +13,7 @@ const FormInput: FC<IFormInput> = ({
 }) => {
   return (
     <>
-      <div className="w-full px-3">
+      <div className="w-[1032px] px-3 ">
         <label
           className="block tracking-wide text-black text-xs font-bold font-roboto mb-2"
           htmlFor="grid-origin"

@@ -15,6 +15,8 @@ import smallFam from '../../assets/small-family.svg';
 import midFam from '../../assets/medium-family.svg';
 import other from '../../assets/other.svg';
 
+
+
 export interface ISelectorType {
   id: number;
   title: string;

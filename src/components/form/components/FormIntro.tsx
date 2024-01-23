@@ -8,7 +8,7 @@ interface IFormIntro {
 const FormIntro: FC<IFormIntro> = ({ heading, subheading }) => {
   return (
     <>
-      <h1 className="text-4xl text-center pt-[54px] font-bold font-spoof">
+      <h1 className="text-4xl text-center pt-[54px] font-spoof font-bold ">
         {heading}
       </h1>
       {subheading && (

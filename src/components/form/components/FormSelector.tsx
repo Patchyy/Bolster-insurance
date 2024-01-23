@@ -12,8 +12,8 @@ const FormSelector: FC<IFormSelector> = ({ data, onClick, selectedItem }) => {
     <>
       <div
         key={data.id}
-        className={`flex flex-col bg-white-off py-[12.5px] px-[39px] justify-center items-center rounded-lg ${
-          selectedItem === data.id ? ' border-[1px] border-blue' : ''
+        className={`flex flex-col bg-white-off py-[12.5px] px-[39px] w-[240px] h-[230px] justify-center items-center rounded-lg ${
+          selectedItem === data.id ? ' border-2 border-blue' : ''
         }`}
         onClick={() => onClick(data.id)}
       >

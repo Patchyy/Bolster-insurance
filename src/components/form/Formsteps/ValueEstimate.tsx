@@ -3,6 +3,7 @@ import { familyData, housingData } from '../Form';
 import FormIntro from '../components/FormIntro';
 import FormInput from '../components/FormInput';
 import FormSelector from '../components/FormSelector';
+import FormFaq from '../components/FormFaq';
 
 const ValueEstimate = () => {
   const [selectedHouse, setSelectedDiv] = useState(Number);
@@ -22,13 +23,13 @@ const ValueEstimate = () => {
         heading="Don't worry we will help you calculate!"
         subheading="What is your living situation like?"
       />
-      <div className="flex flex-wrap -mx-3 py-5">
+      <div className="flex flex-wrap -mx-3 py-5 justify-center">
         <FormInput
           label="Can you tell us the country you are moving from?"
           placeholder="Netherlands"
         />
       </div>
-      <div className="flex flex-wrap items-start">
+      <div className="flex flex-wrap items-start ">
         {/* <label
           className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
           htmlFor="grid-password"
@@ -47,7 +48,7 @@ const ValueEstimate = () => {
           })}
         </div>
       </div>
-      <div className="flex flex-wrap -mx-3 mb-6 py-5">
+      <div className="flex flex-wrap -mx-3 mb-6 py-5 justify-center">
         <FormInput
           label="Can you give us a estimate of the m² of your house?"
           placeholder="120 m²"
@@ -69,34 +70,46 @@ const ValueEstimate = () => {
         worth
       </h1>
 
-      <div className="relative mb-6">
+      <div className="relative mb-16 w-[1032px] mx-auto">
         <label
           htmlFor="large-range"
-          className="block mb-2 text-xl font-medium text-blue text-center"
+          className="block mb-6 text-3xl font-medium text-blue text-center"
         >
           € 15000,-
         </label>
         <input
           id="large-range"
           type="range"
-          value="1000"
+          value="800"
           min="100"
           max="1500"
           className="w-full h-4 bg-white-off rounded-lg appearance-none cursor-pointer range-lg "
         />
-        <span className="text-sm text-gray-500 absolute start-0 -bottom-6">
-          Min $100
+        <span className="text-xl text-black absolute start-0 -bottom-10">
+          Less
         </span>
-        <span className="text-sm text-gray-black  absolute start-1/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">
-          $500
+        <span className="text-xl text-black  absolute start-1/2 -translate-x-1/2 rtl:translate-x-1/2 -bottom-10">
+          Our estimate
         </span>
-        <span className="text-sm text-black absolute start-2/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">
-          $1000
+        <span className="text-xl text-black  absolute end-0 -bottom-10">
+          More
         </span>
-        <span className="text-sm text-black  absolute end-0 -bottom-6">
-          Max $1500
-        </span>
+        
       </div>
+      <span className='text-pink text-center w-full px-24 block m-auto text-xl'>
+        Adjust the slider accordingly if you think it should be more or less. be aware that underinsuring 
+        means that the full amount cannot be paid out since it’s lower than the estimated value
+      </span>
+      <h2 className=' font-spoof text-blue text-3xl pt-[72px] text-center'>Having trouble deciding?</h2>
+      <h3 className=' font-spoof text-black text-xl pt-[24px] text-center'>Don't worry here are some tips 
+that could help!</h3>
+        <div>
+          <ul className='w-1/3 mx-auto mt-8 rounded-xl'>
+              <FormFaq title={'Had contact with your mover already?'} content={'Have you had contact with a mover already and do you know your m³ / ft³ ?'}  />
+              <FormFaq title={'Have you looked at your Home contents insurance?'} content={'Your home right now probably has a home contents insurance this is also based on the value of your household contents. This could give you a estimate of how much your stuff is worth '}  />
+              <FormFaq title={'Need help?'} content={'Don’t worry. We understand it can be difficult to estimate how much your stuff is worth. We are here for you. Call the number below to speak to an expert or plan a meeting with an proffesional.'}  footer={`<p>Test</p>`}/>
+          </ul>
+        </div>
     </div>
   );
 };
