@@ -3,11 +3,12 @@ import { FC } from 'react';
 interface IButton {
   type: string;
   onClick?: () => void;
-  children: JSX.Element;
+  // children: JSX.Element;
+  text: string;
 }
 
-const Button: FC<IButton> = ({ type, onClick, children }) => {
-  return <button onClick={onClick}>{children}</button>;
+const Button: FC<IButton> = ({ type, onClick, text }) => {
+  return <button onClick={onClick}>{text}</button>;
 };
 
 export default Button;

@@ -5,7 +5,9 @@ module.exports = {
     colors: {
       'blue-dark': '#02004E',
       blue: '#486AE9',
+      bluehover: '#1b45e3',
       pink: '#FF6587',
+      pinkhover: '#ff325f',
       green: '#00C88B',
       white: '#FFFFFF',
       black: '#000000',

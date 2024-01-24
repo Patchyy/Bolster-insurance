@@ -7,7 +7,7 @@ interface IFormIntro {
 
 const FormIntro: FC<IFormIntro> = ({ heading, subheading }) => {
   return (
-    <>
+    <div className="flex flex-col w-full h-auto">
       <h1 className="text-4xl text-center pt-[54px] font-spoof font-bold ">
         {heading}
       </h1>
@@ -16,7 +16,7 @@ const FormIntro: FC<IFormIntro> = ({ heading, subheading }) => {
           {subheading}
         </h2>
       )}
-    </>
+    </div>
   );
 };
 
