@@ -8,6 +8,7 @@ interface IFormDropdown {
   label: string;
   fullWidth?: boolean;
   data: ISelectorType[];
+  placeholder: string;
   updateFormData: TUpdateFormData;
 }
 
@@ -17,6 +18,7 @@ const FormDropdown: FC<IFormDropdown> = ({
   label,
   fullWidth = true,
   data,
+  placeholder,
   updateFormData,
 }) => {
   return (
@@ -36,7 +38,7 @@ const FormDropdown: FC<IFormDropdown> = ({
         }
       >
         <option selected disabled>
-          Chose your new house type:
+          {placeholder}
         </option>
         {data.map((dataItem) => {
           return <option value={dataItem.id}>{dataItem.title}</option>;

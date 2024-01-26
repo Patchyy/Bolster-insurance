@@ -84,7 +84,7 @@ const DashboardOverviewPage = () => {
                         </td>
                         <td className="px-6 py-4">{shipment.movingCompany}</td>
                         <td className="px-6 py-4 ">
-                          <Link to={'/dashboard/overview/' + shipment.id}>
+                          <Link to={`/dashboard/overview/${shipment.id}`}>
                             Details
                           </Link>
                         </td>

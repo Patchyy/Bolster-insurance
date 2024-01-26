@@ -167,13 +167,25 @@ const Form: FC<IForm> = ({ step, changeStep }) => {
   });
 
   const updateFormData = (category: TShipmentCategory, newData: any) => {
-    const newFormData = {
-      ...formData,
-      [category]: {
-        ...(formData[category] as any),
-        ...newData,
-      },
-    };
+    let newFormData = formData;
+
+    if (category == 'specialItems') {
+      newFormData = {
+        ...newFormData,
+        [category]: {
+          ...(formData[category] as any),
+          ...newData,
+        },
+      };
+    } else {
+      newFormData = {
+        ...newFormData,
+        [category]: {
+          ...(formData[category] as any),
+          ...newData,
+        },
+      };
+    }
 
     console.log(category, newData, newFormData);
 
@@ -189,13 +201,11 @@ const Form: FC<IForm> = ({ step, changeStep }) => {
     <div>
       {step > 1 && (
         <div className="flex flex-wrap w-full justify-start py-10">
-          <div className="bg-pink hover:bg-pinkhover text-white font-bold py-2 px-4 rounded-full w-[152px] text-center">
-            <Button
-              type={''}
-              text={'Previous step'}
-              onClick={() => changeStep(step - 1)}
-            ></Button>
-          </div>
+          <Button
+            type="pink"
+            text="Previous step"
+            onClick={() => changeStep(step - 1)}
+          />
         </div>
       )}
 
@@ -203,13 +213,11 @@ const Form: FC<IForm> = ({ step, changeStep }) => {
 
       {step < 4 && (
         <div className="flex flex-wrap w-full justify-center py-10">
-          <div className="bg-blue hover:bg-bluehover text-white font-bold py-2 px-4 rounded-full w-[152px] text-center ">
-            <Button
-              type={''}
-              text={'Next step'}
-              onClick={() => changeStep(step + 1)}
-            ></Button>
-          </div>
+          <Button
+            type="blue"
+            text="Next step"
+            onClick={() => changeStep(step + 1)}
+          ></Button>
         </div>
       )}
     </div>

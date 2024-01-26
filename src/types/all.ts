@@ -47,13 +47,16 @@ interface IShipmentFamily {
 
 type IShipmentMovingCompany = string;
 
-interface IShipmentSpecialItems {
-  antique: ICategory;
-  collections: ICategory;
-  art: ICategory;
-  instruments: ICategory;
-  other: ICategory;
-}
+export type TSpecialItemHandles =
+  | 'antique'
+  | 'collections'
+  | 'art'
+  | 'instruments'
+  | 'other';
+
+export type IShipmentSpecialItems = {
+  [key in TSpecialItemHandles]: ICategory;
+};
 
 interface IShipmentPackage {
   chosenPackge: string;

@@ -36,11 +36,9 @@ const AdditionalInfo: FC<IFormStep> = ({ updateFormData, formData }) => {
             )}
           </div>
           <div className="flex bg-white-off w-[64px] h-[46px] justify-center items-center  rounded-lg">
-          {formData.destination.country === 'America' ? (
-            <img src={flagUSA} alt="Flag USA" />
-          ) : null}
-             
-           
+            {formData.destination.country === 'America' ? (
+              <img src={flagUSA} alt="Flag USA" />
+            ) : null}
           </div>
         </div>
         <div className="w-[680px] py-2">
@@ -51,40 +49,40 @@ const AdditionalInfo: FC<IFormStep> = ({ updateFormData, formData }) => {
             placeholder="5611 AT,  Eindhoven, Vrijstraat 9 C/D"
             updateFormData={updateFormData}
           ></FormInput>
-         
         </div>
-        <div className='flex gap-[24px]'>
-        <div className="w-[240px] py-2">
-          <FormInput
-            name="zip"
-            category="origin"
-            label="Current zip/postal code"
-            placeholder="5611 AT"
-            updateFormData={updateFormData}
-          ></FormInput>
-        </div>
-        <div className="w-[240px] py-2">
-          <FormInput
-            name="housenumber"
-            category="origin"
-            label="House number"
-            placeholder="9"
-            updateFormData={updateFormData}
-          ></FormInput>
-        </div>
-        <div className="w-[150px] py-2">
-          <FormInput
-            name="addition"
-            category="origin"
-            label="Addition"
-            placeholder="C/D"
-            updateFormData={updateFormData}
-          ></FormInput>
-        </div>
+        <div className="flex gap-[24px]">
+          <div className="w-[240px] py-2">
+            <FormInput
+              name="zip"
+              category="origin"
+              label="Current zip/postal code"
+              placeholder="5611 AT"
+              updateFormData={updateFormData}
+            ></FormInput>
+          </div>
+          <div className="w-[240px] py-2">
+            <FormInput
+              name="housenumber"
+              category="origin"
+              label="House number"
+              placeholder="9"
+              updateFormData={updateFormData}
+            ></FormInput>
+          </div>
+          <div className="w-[150px] py-2">
+            <FormInput
+              name="addition"
+              category="origin"
+              label="Addition"
+              placeholder="C/D"
+              updateFormData={updateFormData}
+            ></FormInput>
+          </div>
         </div>
         <FormDropdown
           name="movingCompany"
           category="movingCompany"
+          placeholder="select moving company"
           label="Who are you moving with?"
           updateFormData={updateFormData}
           data={[{ id: 1, title: 'Voerman' }]}
@@ -94,6 +92,7 @@ const AdditionalInfo: FC<IFormStep> = ({ updateFormData, formData }) => {
           name="house"
           category="destination"
           label="Select house type"
+          placeholder="select house type"
           updateFormData={updateFormData}
           data={housingData}
         />
@@ -105,7 +104,6 @@ const AdditionalInfo: FC<IFormStep> = ({ updateFormData, formData }) => {
             placeholder="America"
             updateFormData={updateFormData}
           ></FormInput>
-      
         </div>
 
         <div className="w-[680px] py-2">
@@ -117,34 +115,43 @@ const AdditionalInfo: FC<IFormStep> = ({ updateFormData, formData }) => {
             updateFormData={updateFormData}
           ></FormInput>
         </div>
-        <div className='flex gap-[24px]'>
-        <div className="w-[240px] py-2">
-          <FormInput
-            name="zip"
-            category="destination"
-            label="New zip/postal code"
-            placeholder="10026"
-            updateFormData={updateFormData}
-          ></FormInput>
-        </div>
-        <div className="w-[240px] py-2">
-          <FormInput
-            name="housenumber"
-            category="destination"
-            label="New house number"
-            placeholder="112th"
-            updateFormData={updateFormData}
-          ></FormInput>
-        </div>
-        <div className="w-[150px] py-2">
-          <FormInput
-            name="addition"
-            category="origin"
-            label="Addition"
-            placeholder="C"
-            updateFormData={updateFormData}
-          ></FormInput>
-        </div>
+        <div className="flex gap-[24px]">
+          <div className="w-[240px] py-2">
+            <FormInput
+              name="zip"
+              category="destination"
+              label="New zip/postal code"
+              placeholder="10026"
+              updateFormData={updateFormData}
+            ></FormInput>
+          </div>
+          <div className="w-[240px] py-2">
+            <FormInput
+              name="housenumber"
+              category="destination"
+              label="New house number"
+              placeholder="112th"
+              updateFormData={updateFormData}
+            ></FormInput>
+          </div>
+          <div className="w-[150px] py-2">
+            <FormInput
+              name="addition"
+              category="origin"
+              label="Addition"
+              placeholder="C"
+              updateFormData={updateFormData}
+            ></FormInput>
+          </div>
+          <div className="w-[150px] py-2">
+            <FormInput
+              name="addition"
+              category="origin"
+              label="Addition"
+              placeholder="C"
+              updateFormData={updateFormData}
+            ></FormInput>
+          </div>
         </div>
       </div>
     </div>

@@ -6,7 +6,6 @@ import FormSelector from '../components/FormSelector';
 import FormFaq from '../components/FormFaq';
 import FormSlider from '../components/FormSlider';
 import { IFormStep } from '../../../types/all';
-import other from '../../assets/other.svg';
 
 const ValueEstimate: FC<IFormStep> = ({ updateFormData, formData }) => {
   const [selectedHouse, setSelectedHouse] = useState<number>(0);
@@ -140,7 +139,7 @@ const ValueEstimate: FC<IFormStep> = ({ updateFormData, formData }) => {
               Don't worry here are some tips that could help!
             </h3>
             <div>
-              <ul className="w-1/3 mx-auto mt-8 rounded-xl">
+              <ul className="w-1/2 mx-auto mt-8 rounded-xl">
                 <FormFaq
                   title={'Had contact with your mover already?'}
                   content={

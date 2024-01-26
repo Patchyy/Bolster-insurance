@@ -1,27 +1,34 @@
-import { useEffect, useState } from "react";
-import { IShipment } from "../../types/all";
+import { useEffect, useState } from 'react';
+import { IShipment } from '../../types/all';
+import { useParams } from 'react-router';
 
 const DashboardDetailPage = () => {
-  const [shipments, setShipments] = useState<IShipment[]>([]);
+  const [shipment, setShipment] = useState<IShipment | null>(null);
+  const params = useParams();
 
   useEffect(() => {
-    const getShipments = async () => {
-      const res = await fetch('http://localhost:5000/shipments');
+    const getShipments = async (shipmentId: string) => {
+      const res = await fetch(`http://localhost:5000/shipments/${shipmentId}`);
       const data = await res.json();
 
-      setShipments(data);
+      setShipment(data);
     };
 
-    getShipments();
+    const shipmentId = params.shipmentId;
+
+    if (shipmentId) {
+      getShipments(shipmentId);
+    }
   }, []);
 
   useEffect(() => {
-    console.log('Shipments:', shipments);
-  }, [shipments]);
+    console.log('Shipments:', shipment);
+  }, [shipment]);
+
   return (
     <div id="shipments" className="bg-white-off h-[400px]">
       <h1>Details</h1>
-        
+      {shipment && <h2>{shipment.movingCompany}</h2>}
     </div>
   );
 };
