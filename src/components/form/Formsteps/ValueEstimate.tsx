@@ -77,6 +77,7 @@ const ValueEstimate: FC<IFormStep> = ({ updateFormData, formData }) => {
           {housingData.map((housingDataItem) => {
             return (
               <FormSelector
+                key={housingDataItem.id}
                 data={housingDataItem}
                 onClick={handleHouseClick}
                 selectedItem={selectedHouse}
@@ -100,6 +101,7 @@ const ValueEstimate: FC<IFormStep> = ({ updateFormData, formData }) => {
         {familyData.map((familyDataItem) => {
           return (
             <FormSelector
+              key={familyDataItem.id}
               data={familyDataItem}
               onClick={handleFamilyClick}
               selectedItem={selectedFamily}

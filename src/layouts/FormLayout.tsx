@@ -24,7 +24,10 @@ const FormLayout: FC<IFormLayout> = ({ step, children }) => {
         >
           {formSteps.map((formStep, index) => {
             return (
-              <li className="relative z-10 flex justify-center items-center flex-col">
+              <li
+                className="relative z-10 flex justify-center items-center flex-col"
+                key={index}
+              >
                 <p className="text-white font-semibold mb-4">{formStep}</p>
                 <div
                   className={classNames({

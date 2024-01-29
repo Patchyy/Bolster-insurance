@@ -12,7 +12,7 @@ const FormIntro: FC<IFormIntro> = ({ heading, subheading }) => {
         {heading}
       </h1>
       {subheading && (
-        <h2 className="text-3xl text-center mt-[48px] mb-[48px] font-spoof">
+        <h2 className="text-xl text-center mt-[48px] mb-[48px] font-spoof w-1/2 mx-auto">
           {subheading}
         </h2>
       )}

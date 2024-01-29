@@ -8,7 +8,7 @@ interface ICategory {
   items: IItem[];
 }
 
-interface IItem {
+export interface IItem {
   id: number;
   name: string;
   description: string;

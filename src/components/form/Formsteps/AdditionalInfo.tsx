@@ -137,16 +137,7 @@ const AdditionalInfo: FC<IFormStep> = ({ updateFormData, formData }) => {
           <div className="w-[150px] py-2">
             <FormInput
               name="addition"
-              category="origin"
-              label="Addition"
-              placeholder="C"
-              updateFormData={updateFormData}
-            ></FormInput>
-          </div>
-          <div className="w-[150px] py-2">
-            <FormInput
-              name="addition"
-              category="origin"
+              category="destination"
               label="Addition"
               placeholder="C"
               updateFormData={updateFormData}

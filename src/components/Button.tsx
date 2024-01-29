@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { FC } from 'react';
 
 interface IButton {
-  type: 'pink' | 'blue' | 'green';
+  type: 'pink' | 'blue' | 'green' | 'outline-blue';
   onClick?: () => void;
   // children: JSX.Element;
   text: string;
@@ -13,11 +13,12 @@ const Button: FC<IButton> = ({ type, onClick, text }) => {
     <button
       onClick={onClick}
       className={classNames({
-        'text-white font-bold py-2 px-4 rounded-full w-[152px] text-center':
-          true,
-        'bg-pink hover:bg-pinkhover': type == 'pink',
-        'bg-blue hover:bg-bluehover': type == 'blue',
-        'bg-green hover:bg-greenhover': type == 'green',
+        'font-bold py-2 px-4 rounded-full w-[152px] text-center': true,
+        'bg-pink text-white hover:bg-pinkhover': type == 'pink',
+        'bg-blue text-white hover:bg-bluehover': type == 'blue',
+        'bg-green text-white hover:bg-greenhover': type == 'green',
+        'bg-white text-blue border-blue border hover:text-bluehover hover:border-bluehover':
+          type == 'outline-blue',
       })}
     >
       {text}

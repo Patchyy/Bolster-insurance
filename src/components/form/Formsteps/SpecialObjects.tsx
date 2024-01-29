@@ -1,6 +1,8 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import {
   IFormStep,
+  IItem,
+  IShipmentSpecialItems,
   TShipmentCategory,
   TSpecialItemHandles,
 } from '../../../types/all';
@@ -10,12 +12,8 @@ import collections from '../../../assets/collections.svg';
 import art from '../../../assets/art.svg';
 import instruments from '../../../assets/intsruments.svg';
 import otherItems from '../../../assets/otheritems.svg';
-import Button from '../../Button';
-import FormList from '../components/FormList';
-import FormInput from '../components/FormInput';
-import FormDropdown from '../components/FormDropdown';
-import FormTextarea from '../components/FormTextarea';
 import SpecialObjectsFirst from './SpecialObjectsSteps/SpecialObjectsFirst';
+import SpecialObjectsSecond from './SpecialObjectsSteps/SpecialObjectsSecond';
 
 export interface IStepData {
   id: number;
@@ -82,8 +80,25 @@ const stepData: IStepData[] = [
 const SpecialObjects: FC<IFormStep> = ({ updateFormData, formData }) => {
   const [step, setStep] = useState<number>(0);
   const [finished, setFinished] = useState<boolean>(false);
+  const [activeHandles, setActiveHandles] = useState<string[]>([]);
 
-  const HasSpecialItems = (
+  useEffect(() => {
+    if (finished) {
+      const newActiveHandles = Object.keys(formData.specialItems).filter(
+        (object) => {
+          if (
+            formData.specialItems[object as keyof IShipmentSpecialItems].active
+          ) {
+            return object;
+          }
+        }
+      );
+
+      setActiveHandles(newActiveHandles);
+    }
+  }, [finished]);
+
+  const hasSpecialItems = (
     specialItemHandle: TSpecialItemHandles,
     choice: boolean
   ) => {
@@ -95,6 +110,35 @@ const SpecialObjects: FC<IFormStep> = ({ updateFormData, formData }) => {
     });
 
     handleStep(step + 1);
+  };
+
+  const setSpecialItems = (
+    specialItemHandle: TSpecialItemHandles,
+    item: IItem
+  ) => {
+    updateFormData('specialItems', {
+      [specialItemHandle]: {
+        items: [...formData.specialItems[specialItemHandle].items, item],
+      },
+    });
+  };
+
+  const removeSpecialItems = (
+    specialItemHandle: TSpecialItemHandles,
+    name: string
+  ) => {
+    const itemIndex = formData.specialItems[specialItemHandle].items.findIndex(
+      (itemIndex) => itemIndex.name == name
+    );
+
+    updateFormData('specialItems', {
+      [specialItemHandle]: {
+        items: formData.specialItems[specialItemHandle].items.splice(
+          itemIndex,
+          1
+        ),
+      },
+    });
   };
 
   const handleStep = (newStep: number) => {
@@ -118,87 +162,16 @@ const SpecialObjects: FC<IFormStep> = ({ updateFormData, formData }) => {
       {!finished && (
         <SpecialObjectsFirst
           stepData={stepData[step]}
-          HasSpecialItems={HasSpecialItems}
+          hasSpecialItems={hasSpecialItems}
         />
       )}
 
       {finished && (
-        <>
-          <h2 className=""></h2>
-          <div className="flex justify-between pt-[40px] gap-[112px] items-center w-full">
-            <div className="flex justify-center flex-col pt-[40px] items-start w-[680px]">
-              <h2 className="">Antique</h2>
-              <FormInput
-                name="name"
-                category="specialItems"
-                label="Item name"
-                placeholder="Antique chair"
-                updateFormData={updateFormData}
-              />
-              <FormTextarea
-                name="description"
-                category="specialItems"
-                label="Description"
-                placeholder="example"
-                updateFormData={updateFormData}
-              />
-              <FormInput
-                name="value"
-                category="specialItems"
-                label="Replacement value at destination"
-                placeholder="example"
-                updateFormData={updateFormData}
-              />
-
-              <FormDropdown
-                name="condition"
-                category="specialItems"
-                label="Item condition"
-                placeholder="select the condition"
-                updateFormData={updateFormData}
-                data={[
-                  {
-                    id: 0,
-                    title: 'Perfect Condition',
-                  },
-                  {
-                    id: 1,
-                    title: 'Very good condition',
-                  },
-                  {
-                    id: 2,
-                    title: 'Good condition',
-                  },
-                  {
-                    id: 3,
-                    title: 'Average condition',
-                  },
-                  {
-                    id: 4,
-                    title: 'Bad condition',
-                  },
-                ]}
-              />
-              <FormInput
-                name="purchaseYear"
-                category="specialItems"
-                label="Year of purchase"
-                placeholder="example"
-                updateFormData={updateFormData}
-              />
-            </div>
-            <div className="flex flex-col gap-[36px]">
-              <div className="flex flex-col bg-white-off py-[12.5px] px-[12.5px] w-[240px] h-[230px] justify-center items-center rounded-lg">
-                <img className="w-[140px] h-[140px]" src={antique} alt="" />
-                <p>Antique</p>
-              </div>
-              <div className="flex flex-col bg-white-off py-[12.5px] px-[12.5px] w-[240px] h-[230px] justify-center items-center rounded-lg">
-                <img className="w-[140px] h-[140px]" src={collections} alt="" />
-                <p>Collections</p>
-              </div>
-            </div>
-          </div>
-        </>
+        <SpecialObjectsSecond
+          activeHandles={activeHandles}
+          setSpecialItems={setSpecialItems}
+          removeSpecialItems={removeSpecialItems}
+        />
       )}
     </div>
   );

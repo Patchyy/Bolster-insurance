@@ -17,7 +17,11 @@ module.exports = {
       roboto: ['Roboto', 'sans-serif'],
       spoof: ['Spoof', 'sans-serif'],
     },
-    extend: {},
+    extend: {
+      listStyleImage: {
+        checkmark: 'url("assets/checkmark.svg")',
+      },
+    },
   },
   plugins: [],
 };

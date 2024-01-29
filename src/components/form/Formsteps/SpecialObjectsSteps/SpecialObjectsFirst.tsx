@@ -6,7 +6,7 @@ import { TSpecialItemHandles } from '../../../../types/all';
 
 interface ISpecialObjectsFirst {
   stepData: IStepData;
-  HasSpecialItems: (
+  hasSpecialItems: (
     specialItemHandle: TSpecialItemHandles,
     choice: boolean
   ) => void;
@@ -14,7 +14,7 @@ interface ISpecialObjectsFirst {
 
 const SpecialObjectsFirst: FC<ISpecialObjectsFirst> = ({
   stepData,
-  HasSpecialItems,
+  hasSpecialItems,
 }) => {
   return (
     <>
@@ -31,12 +31,12 @@ const SpecialObjectsFirst: FC<ISpecialObjectsFirst> = ({
         <Button
           type="pink"
           text="yes"
-          onClick={() => HasSpecialItems(stepData.handle, true)}
+          onClick={() => hasSpecialItems(stepData.handle, true)}
         />
         <Button
           type="blue"
           text="no"
-          onClick={() => HasSpecialItems(stepData.handle, false)}
+          onClick={() => hasSpecialItems(stepData.handle, false)}
         />
       </div>
       <div className="flex flex-col justify-center items-center pt-[56px] ">
@@ -45,8 +45,8 @@ const SpecialObjectsFirst: FC<ISpecialObjectsFirst> = ({
         </h2>
 
         <ul className="w-1/2 space-y-6 text-black list-inside text-xl pt-[24px] ">
-          {stepData.examples.map((example) => {
-            return <FormList listItem={example} />;
+          {stepData.examples.map((example, index) => {
+            return <FormList listItem={example} key={index} />;
           })}
         </ul>
       </div>
