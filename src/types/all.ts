@@ -98,3 +98,12 @@ export interface IFormStep {
   updateFormData: TUpdateFormData;
   formData: IShipment;
 }
+
+export interface IPackage {
+  name: [
+  //   "gold"[
+  //     "test",
+  //   ]
+  // ],
+  ],
+}
