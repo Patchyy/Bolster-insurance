@@ -135,34 +135,38 @@ const Form: FC<IForm> = ({ step, changeStep }) => {
       baby: 0,
     },
     movingCompany: '',
-    specialItems: {
-      antique: {
-        active: false,
-        items: [],
+    specialItems: [
+      {
+        id: 1,
+        name: 'Antique Item',
+        description: 'mooi ding',
+        replacemenValue: {
+          value: 30,
+          valuta: 'eur',
+        },
+        condition: 'new',
+        purchaseYear: 2024,
+        type: 'Antique',
       },
-      collections: {
-        active: false,
-        items: [],
+      {
+        id: 2,
+        name: 'Collections Item',
+        description: 'mooi ding',
+        replacemenValue: {
+          value: 30,
+          valuta: 'eur',
+        },
+        condition: 'new',
+        purchaseYear: 2024,
+        type: 'Collections',
       },
-      art: {
-        active: false,
-        items: [],
-      },
-      instruments: {
-        active: false,
-        items: [],
-      },
-      other: {
-        active: false,
-        items: [],
-      },
-    },
+    ],
     package: {
-      chosenPackge: '',
-      value: {
-        value: 0,
-        valuta: '',
-      },
+      packageName: '',
+      subname: ' ',
+      value: { value: 0, valuta: '' },
+      included: ['', ''],
+      extraOptions: [],
     },
   });
 
@@ -172,10 +176,7 @@ const Form: FC<IForm> = ({ step, changeStep }) => {
     if (category == 'specialItems') {
       newFormData = {
         ...newFormData,
-        [category]: {
-          ...(formData[category] as any),
-          ...newData,
-        },
+        [category]: [...newData],
       };
     } else {
       newFormData = {

@@ -27,7 +27,7 @@ export interface IStepData {
 const stepData: IStepData[] = [
   {
     id: 1,
-    handle: 'antique',
+    handle: 'Antique',
     title: 'Antique',
     description:
       'Antique typically refers to objects, furniture, or works of art that are old and valuable due to their age and historical significance. Generally, items are considered antiques if they are at least 100 years old',
@@ -36,7 +36,7 @@ const stepData: IStepData[] = [
   },
   {
     id: 2,
-    handle: 'collections',
+    handle: 'Collections',
     title: 'Collection',
     description:
       'with collections we mean expensive collections or collections that have a lot of sentimental value. for instance a Gucci bag collection or a gemstone collection that you collected',
@@ -50,7 +50,7 @@ const stepData: IStepData[] = [
   },
   {
     id: 3,
-    handle: 'art',
+    handle: 'Art',
     title: 'Art',
     description:
       "With are we mean things people created to express their feelings, ideas, or imagination. It can be a drawing, painting, music, dance, or anything that shows their creativity. It's a way of communicating without words",
@@ -59,7 +59,7 @@ const stepData: IStepData[] = [
   },
   {
     id: 4,
-    handle: 'instruments',
+    handle: 'Instruments',
     title: 'Instruments',
     description:
       'With Instruments we mean tools or devices designed for creating music. They come in various shapes and sizes, and each produces distinctive sounds. The bigger the instrument the harder it is to move them. ',
@@ -68,7 +68,7 @@ const stepData: IStepData[] = [
   },
   {
     id: 5,
-    handle: 'other',
+    handle: 'Other',
     title: 'Other items',
     description:
       "If there are other items you'd like to include for insurance registration that we haven't discussed yet, please take a moment to think about this. Your input is valuable in ensuring a thorough and accurate registration process.",
@@ -80,65 +80,29 @@ const stepData: IStepData[] = [
 const SpecialObjects: FC<IFormStep> = ({ updateFormData, formData }) => {
   const [step, setStep] = useState<number>(0);
   const [finished, setFinished] = useState<boolean>(false);
-  const [activeHandles, setActiveHandles] = useState<string[]>([]);
-
-  useEffect(() => {
-    if (finished) {
-      const newActiveHandles = Object.keys(formData.specialItems).filter(
-        (object) => {
-          if (
-            formData.specialItems[object as keyof IShipmentSpecialItems].active
-          ) {
-            return object;
-          }
-        }
-      );
-
-      setActiveHandles(newActiveHandles);
-    }
-  }, [finished]);
+  const [activeHandles, setActiveHandles] = useState<TSpecialItemHandles[]>([]);
 
   const hasSpecialItems = (
     specialItemHandle: TSpecialItemHandles,
     choice: boolean
   ) => {
-    updateFormData('specialItems', {
-      [specialItemHandle]: {
-        active: choice,
-        items: formData.specialItems[specialItemHandle].items,
-      },
-    });
+    if (choice) {
+      setActiveHandles([...activeHandles, specialItemHandle]);
+    }
 
     handleStep(step + 1);
   };
 
-  const setSpecialItems = (
-    specialItemHandle: TSpecialItemHandles,
-    item: IItem
-  ) => {
-    updateFormData('specialItems', {
-      [specialItemHandle]: {
-        items: [...formData.specialItems[specialItemHandle].items, item],
-      },
-    });
+  const createSpecialItems = (item: IItem) => {
+    updateFormData('specialItems', [...formData.specialItems, item]);
   };
 
-  const removeSpecialItems = (
-    specialItemHandle: TSpecialItemHandles,
-    name: string
-  ) => {
-    const itemIndex = formData.specialItems[specialItemHandle].items.findIndex(
-      (itemIndex) => itemIndex.name == name
+  const removeSpecialItems = (id: number) => {
+    const newItems = formData.specialItems.filter(
+      (specialItem) => specialItem.id !== id
     );
 
-    updateFormData('specialItems', {
-      [specialItemHandle]: {
-        items: formData.specialItems[specialItemHandle].items.splice(
-          itemIndex,
-          1
-        ),
-      },
-    });
+    updateFormData('specialItems', newItems);
   };
 
   const handleStep = (newStep: number) => {
@@ -168,9 +132,10 @@ const SpecialObjects: FC<IFormStep> = ({ updateFormData, formData }) => {
 
       {finished && (
         <SpecialObjectsSecond
-          activeHandles={activeHandles}
-          setSpecialItems={setSpecialItems}
+          createSpecialItems={createSpecialItems}
           removeSpecialItems={removeSpecialItems}
+          activeHandles={activeHandles}
+          formData={formData}
         />
       )}
     </div>
