@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
-import { IStepData } from '../SpecialObjects';
-import FormList from '../../components/FormList';
-import Button from '../../../Button';
-import { TSpecialItemHandles } from '../../../../types/all';
+import { FC } from "react";
+import { IStepData } from "../SpecialObjects";
+import FormList from "../../components/FormList";
+import Button from "../../../Button";
+import { TSpecialItemHandles } from "../../../../types/all";
 
 interface ISpecialObjectsFirst {
   stepData: IStepData;

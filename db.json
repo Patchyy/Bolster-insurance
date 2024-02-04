@@ -32,50 +32,16 @@
       "movingCompany": "Tempo Moving",
       "specialItems": [
         {
-          "antique": {
-            "active": true,
-            "items": [
-              {
-                "id": 34625,
-                "name": "Windsor chair",
-                "description": "Antique Windsor chair from the 19th century with a unique patina. Curved frame and seat in solid oak with turned side posts and legs.",
-                "replacementValue": {
-                  "value": 450,
-                  "valuta": "eur"
-                },
-                "condition": "Perfect condition",
-                "purchaseYear": 2007
-              }
-            ]
+          "id": 1,
+          "name": "sdg",
+          "description": "sdg",
+          "replacemenValue": {
+            "valuta": "eur",
+            "value": "sdg"
           },
-          "collections": {
-            "active": false,
-            "items": [
-              {
-                "id": 34626,
-                "name": "Lego collection",
-                "description": "A LEGO collection featuring iconic Star Wars sets, detailed architectural masterpieces from the LEGO Creator Expert line, and creative themes like the LEGO Ideas series. This collection also includes rare and exclusive sets, making it a valuable addition for both fans and collectors. Whether you want to explore the galaxy with LEGO Star Wars or build detailed replicas of famous buildings, this collection offers a comprehensive experience for LEGO enthusiasts of all ages",
-                "replacementValue": {
-                  "value": 6550,
-                  "valuta": "eur"
-                },
-                "condition": "Perfect condition",
-                "purchaseYear": 2013
-              }
-            ]
-          },
-          "art": {
-            "active": false,
-            "items": []
-          },
-          "instruments": {
-            "active": false,
-            "items": []
-          },
-          "other": {
-            "active": false,
-            "items": []
-          }
+          "condition": 0,
+          "purchaseYear": "sdg",
+          "type": "Antique"
         }
       ],
       "package": {

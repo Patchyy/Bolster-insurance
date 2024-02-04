@@ -1,14 +1,14 @@
-import { FC } from 'react';
-import { TShipmentCategory, TUpdateFormData } from '../../../types/all';
+import { FC } from "react";
+import { TUpdateFormData } from "../../../types/all";
 
 interface IFormInput {
   name: string;
-  category: TShipmentCategory;
+  category: any;
   label: string;
   placeholder: string;
   fullWidth?: boolean;
   value?: string;
-  updateFormData: TUpdateFormData;
+  updateFormData?: TUpdateFormData;
 }
 
 const FormInput: FC<IFormInput> = ({
@@ -32,6 +32,7 @@ const FormInput: FC<IFormInput> = ({
         placeholder={placeholder}
         value={value}
         onChange={(event) =>
+          updateFormData &&
           updateFormData(category, { [name]: event.target.value })
         }
       />

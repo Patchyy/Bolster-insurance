@@ -1,6 +1,6 @@
-import classNames from 'classnames';
-import { FC } from 'react';
-import { Link } from 'react-router-dom';
+import classNames from "classnames";
+import { FC } from "react";
+import { Link } from "react-router-dom";
 
 interface IFormLayout {
   step: number;
@@ -8,10 +8,10 @@ interface IFormLayout {
 }
 
 const formSteps: string[] = [
-  'Value estimate',
-  'Additional info',
-  'Special objects',
-  'Insurances',
+  "Value estimate",
+  "Additional info",
+  "Special objects",
+  "Insurances",
 ];
 
 const FormLayout: FC<IFormLayout> = ({ step, children }) => {
@@ -31,10 +31,10 @@ const FormLayout: FC<IFormLayout> = ({ step, children }) => {
                 <p className="text-white font-semibold mb-4">{formStep}</p>
                 <div
                   className={classNames({
-                    'flex items-center justify-center w-24 h-24 rounded-full shrink-0  text-2xl font-bold bg-white text-black':
+                    "flex items-center justify-center w-24 h-24 rounded-full shrink-0  text-2xl font-bold bg-white text-black":
                       true,
-                    '!bg-blue !text-white': index + 1 == step,
-                    '!bg-green !text-white': index + 1 < step,
+                    "!bg-blue !text-white": index + 1 === step,
+                    "!bg-green !text-white": index + 1 < step,
                   })}
                 >
                   {index + 1}
@@ -45,7 +45,7 @@ const FormLayout: FC<IFormLayout> = ({ step, children }) => {
         </ul>
       </header>
       <main className="bg-white-off">
-        <div className="relative top-[-70px] container px-[144px] mx-auto bg-white h-auto">
+        <div className="relative top-[-70px] container px-[40px] md:px-[80px] lg:px-[200px] mx-auto bg-white h-auto">
           {children}
 
           {/* <div className="w-full px-6 py-20">

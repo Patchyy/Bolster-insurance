@@ -44,11 +44,11 @@ interface IShipmentFamily {
 type IShipmentMovingCompany = string;
 
 export type TSpecialItemHandles =
-  | 'Antique'
-  | 'Collections'
-  | 'Art'
-  | 'Instruments'
-  | 'Other';
+  | "Antique"
+  | "Collections"
+  | "Art"
+  | "Instruments"
+  | "Other";
 
 export type IShipmentSpecialItems = IItem[];
 
@@ -70,12 +70,12 @@ export type TShipmentCategoryData =
   | IShipmentPackage;
 
 export type TShipmentCategory =
-  | 'origin'
-  | 'destination'
-  | 'family'
-  | 'movingCompany'
-  | 'specialItems'
-  | 'package';
+  | "origin"
+  | "destination"
+  | "family"
+  | "movingCompany"
+  | "specialItems"
+  | "package";
 
 export interface IShipment {
   id?: number;
@@ -87,10 +87,7 @@ export interface IShipment {
   package: IShipmentPackage;
 }
 
-export type TUpdateFormData = (
-  category: TShipmentCategory,
-  newData: any
-) => void;
+export type TUpdateFormData = (category: any, newData: any) => void;
 
 export interface IFormStep {
   updateFormData: TUpdateFormData;
@@ -99,58 +96,58 @@ export interface IFormStep {
 
 export const InsuranceData: IShipmentPackage[] = [
   {
-    packageName: 'Bronze',
-    subname: 'Shipment lost',
-    value: { value: 0, valuta: 'EUR' }, // Hier een voorbeeld van een IValue instantie
-    included: ['Total shipment lost', 'Fair market value'],
+    packageName: "Bronze",
+    subname: "Shipment lost",
+    value: { value: 0, valuta: "EUR" }, // Hier een voorbeeld van een IValue instantie
+    included: ["Total shipment lost", "Fair market value"],
     extraOptions: [],
   },
   {
-    packageName: 'Silver',
-    subname: 'Choose your option',
-    value: { value: 0, valuta: 'EUR' }, // Hier een voorbeeld van een IValue instantie
-    included: ['Bronze coverage', 'Partial loss'],
+    packageName: "Silver",
+    subname: "Choose your option",
+    value: { value: 0, valuta: "EUR" }, // Hier een voorbeeld van een IValue instantie
+    included: ["Bronze coverage", "Partial loss"],
     extraOptions: [
-      ' In case of total loss/missing, partial loss: new for old ',
-      ' SIT 60 Days',
-      'Electrical derangement',
-      'Mechanical derangement',
-      'Mould & Mildew max 15% coverage',
-      'Pairs & Sets',
-      'Removal costs',
+      " In case of total loss/missing, partial loss: new for old ",
+      " SIT 60 Days",
+      "Electrical derangement",
+      "Mechanical derangement",
+      "Mould & Mildew max 15% coverage",
+      "Pairs & Sets",
+      "Removal costs",
     ],
   },
   {
-    packageName: 'gold',
-    subname: 'Like & kind replacement',
-    value: { value: 0, valuta: 'EUR' }, // Hier een voorbeeld van een IValue instantie
+    packageName: "gold",
+    subname: "Like & kind replacement",
+    value: { value: 0, valuta: "EUR" }, // Hier een voorbeeld van een IValue instantie
     included: [
-      'Silver coverage',
-      'In case of total loss/missing partial loss for items younger than 12 months: new for old',
-      'In case of partial loss: repair costs, actual repair or depreciation',
-      'SIT 120 days',
-      'Electrical & mechanical derangement',
-      'Mould & Mildew 30% coverage',
-      'Pair & sets',
+      "Silver coverage",
+      "In case of total loss/missing partial loss for items younger than 12 months: new for old",
+      "In case of partial loss: repair costs, actual repair or depreciation",
+      "SIT 120 days",
+      "Electrical & mechanical derangement",
+      "Mould & Mildew 30% coverage",
+      "Pair & sets",
     ],
     extraOptions: [
-      'Removal costs',
+      "Removal costs",
       // Voeg hier je extra opties toe
     ],
     ourAdvice: true,
   },
   {
-    packageName: 'Platinum',
-    subname: 'New for old',
-    value: { value: 0, valuta: 'EUR' }, // Hier een voorbeeld van een IValue instantie
+    packageName: "Platinum",
+    subname: "New for old",
+    value: { value: 0, valuta: "EUR" }, // Hier een voorbeeld van een IValue instantie
     included: [
-      'Gold coverage',
-      'In case of total loss/missing partial loss for items younger than 36 months: new for old',
-      'In case of partial loss: repair costs, actual repair or deprecation',
-      'Mould & Mildew 100% insured value',
+      "Gold coverage",
+      "In case of total loss/missing partial loss for items younger than 36 months: new for old",
+      "In case of partial loss: repair costs, actual repair or deprecation",
+      "Mould & Mildew 100% insured value",
     ],
     extraOptions: [
-      'Removal costs',
+      "Removal costs",
       // Voeg hier je extra opties toe
     ],
   },

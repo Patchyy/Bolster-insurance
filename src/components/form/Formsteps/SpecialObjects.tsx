@@ -1,19 +1,13 @@
-import { FC, useEffect, useState } from 'react';
-import {
-  IFormStep,
-  IItem,
-  IShipmentSpecialItems,
-  TShipmentCategory,
-  TSpecialItemHandles,
-} from '../../../types/all';
-import FormIntro from '../components/FormIntro';
-import antique from '../../../assets/Antique.svg';
-import collections from '../../../assets/collections.svg';
-import art from '../../../assets/art.svg';
-import instruments from '../../../assets/intsruments.svg';
-import otherItems from '../../../assets/otheritems.svg';
-import SpecialObjectsFirst from './SpecialObjectsSteps/SpecialObjectsFirst';
-import SpecialObjectsSecond from './SpecialObjectsSteps/SpecialObjectsSecond';
+import { FC, useState } from "react";
+import { IFormStep, IItem, TSpecialItemHandles } from "../../../types/all";
+import FormIntro from "../components/FormIntro";
+import antique from "../../../assets/Antique.svg";
+import collections from "../../../assets/collections.svg";
+import art from "../../../assets/art.svg";
+import instruments from "../../../assets/intsruments.svg";
+import otherItems from "../../../assets/otheritems.svg";
+import SpecialObjectsFirst from "./SpecialObjectsSteps/SpecialObjectsFirst";
+import SpecialObjectsSecond from "./SpecialObjectsSteps/SpecialObjectsSecond";
 
 export interface IStepData {
   id: number;
@@ -27,53 +21,53 @@ export interface IStepData {
 const stepData: IStepData[] = [
   {
     id: 1,
-    handle: 'Antique',
-    title: 'Antique',
+    handle: "Antique",
+    title: "Antique",
     description:
-      'Antique typically refers to objects, furniture, or works of art that are old and valuable due to their age and historical significance. Generally, items are considered antiques if they are at least 100 years old',
+      "Antique typically refers to objects, furniture, or works of art that are old and valuable due to their age and historical significance. Generally, items are considered antiques if they are at least 100 years old",
     image: antique,
-    examples: ['Victorian furniture', 'Porcelain China', 'Jukeboxes', 'Quilts'],
+    examples: ["Victorian furniture", "Porcelain China", "Jukeboxes", "Quilts"],
   },
   {
     id: 2,
-    handle: 'Collections',
-    title: 'Collection',
+    handle: "Collections",
+    title: "Collection",
     description:
-      'with collections we mean expensive collections or collections that have a lot of sentimental value. for instance a Gucci bag collection or a gemstone collection that you collected',
+      "with collections we mean expensive collections or collections that have a lot of sentimental value. for instance a Gucci bag collection or a gemstone collection that you collected",
     image: collections,
     examples: [
-      'Lego collection',
-      'Rolex Collection',
-      'Jewelry Collection',
-      'Wine Collections',
+      "Lego collection",
+      "Rolex Collection",
+      "Jewelry Collection",
+      "Wine Collections",
     ],
   },
   {
     id: 3,
-    handle: 'Art',
-    title: 'Art',
+    handle: "Art",
+    title: "Art",
     description:
       "With are we mean things people created to express their feelings, ideas, or imagination. It can be a drawing, painting, music, dance, or anything that shows their creativity. It's a way of communicating without words",
     image: art,
-    examples: ['Paintings', 'Expensive statues', 'Ceramics', 'Posters'],
+    examples: ["Paintings", "Expensive statues", "Ceramics", "Posters"],
   },
   {
     id: 4,
-    handle: 'Instruments',
-    title: 'Instruments',
+    handle: "Instruments",
+    title: "Instruments",
     description:
-      'With Instruments we mean tools or devices designed for creating music. They come in various shapes and sizes, and each produces distinctive sounds. The bigger the instrument the harder it is to move them. ',
+      "With Instruments we mean tools or devices designed for creating music. They come in various shapes and sizes, and each produces distinctive sounds. The bigger the instrument the harder it is to move them. ",
     image: instruments,
-    examples: ['Guitar', 'Piano', 'Harp', 'Drums'],
+    examples: ["Guitar", "Piano", "Harp", "Drums"],
   },
   {
     id: 5,
-    handle: 'Other',
-    title: 'Other items',
+    handle: "Other",
+    title: "Other items",
     description:
       "If there are other items you'd like to include for insurance registration that we haven't discussed yet, please take a moment to think about this. Your input is valuable in ensuring a thorough and accurate registration process.",
     image: otherItems,
-    examples: ['Aquarium', 'Terrarium', 'Sports gear', 'Vehicles'],
+    examples: ["Aquarium", "Terrarium", "Sports gear", "Vehicles"],
   },
 ];
 
@@ -94,7 +88,7 @@ const SpecialObjects: FC<IFormStep> = ({ updateFormData, formData }) => {
   };
 
   const createSpecialItems = (item: IItem) => {
-    updateFormData('specialItems', [...formData.specialItems, item]);
+    updateFormData("specialItems", [...formData.specialItems, item]);
   };
 
   const removeSpecialItems = (id: number) => {
@@ -102,7 +96,7 @@ const SpecialObjects: FC<IFormStep> = ({ updateFormData, formData }) => {
       (specialItem) => specialItem.id !== id
     );
 
-    updateFormData('specialItems', newItems);
+    updateFormData("specialItems", newItems);
   };
 
   const handleStep = (newStep: number) => {
@@ -118,8 +112,8 @@ const SpecialObjects: FC<IFormStep> = ({ updateFormData, formData }) => {
       <FormIntro
         heading={
           !finished
-            ? 'Do you have any special items we should know off?'
-            : 'What are your special items? list them down below'
+            ? "Do you have any special items we should know off?"
+            : "What are your special items? list them down below"
         }
       />
 

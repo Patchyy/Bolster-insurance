@@ -1,48 +1,49 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import ErrorPage from './pages/ErrorPage';
-import FormPage from './pages/FormPage';
-import DashboardPage from './pages/Dashboard/Dashboard.view';
-import DashboardDetailPage from './pages/Dashboard/DashboardDetail.view';
-import DashboardOverviewPage from './pages/Dashboard/DashboardOverview.view';
-import './Styles.css';
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/datepicker.min.js"></script>
-
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import ErrorPage from "./pages/ErrorPage";
+import FormPage from "./pages/FormPage";
+import DashboardPage from "./pages/Dashboard/Dashboard.view";
+import DashboardDetailPage from "./pages/Dashboard/DashboardDetail.view";
+import DashboardOverviewPage from "./pages/Dashboard/DashboardOverview.view";
+import "./Styles.css";
+import Header from "./layouts/Header";
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/datepicker.min.js"></script>;
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <HomePage />,
     errorElement: <ErrorPage />,
   },
   {
-    path: '/dashboard',
+    path: "/dashboard",
     element: <DashboardPage />,
     children: [
       {
-        path: '/dashboard/overview',
+        path: "/dashboard/overview",
         element: <DashboardOverviewPage />,
       },
       {
-        path: '/dashboard/overview/:shipmentId',
+        path: "/dashboard/overview/:shipmentId",
         element: <DashboardDetailPage />,
       },
     ],
   },
   {
-    path: '/formulier',
+    path: "/formulier",
     element: <FormPage />,
   },
 ]);
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 
 root.render(
   <React.StrictMode>
+    <Header />
     <RouterProvider router={router} />
   </React.StrictMode>
 );

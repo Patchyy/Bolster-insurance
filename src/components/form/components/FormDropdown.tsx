@@ -1,22 +1,21 @@
-import { FC } from 'react';
-import { TShipmentCategory, TUpdateFormData } from '../../../types/all';
-import { ISelectorType } from '../Form';
+import { FC } from "react";
+import { TUpdateFormData } from "../../../types/all";
+import { ISelectorType } from "../Form";
 
 interface IFormDropdown {
   name: string;
-  category: TShipmentCategory;
+  category: any;
   label: string;
   fullWidth?: boolean;
   data: ISelectorType[];
   placeholder: string;
-  updateFormData: TUpdateFormData;
+  updateFormData?: TUpdateFormData;
 }
 
 const FormDropdown: FC<IFormDropdown> = ({
   name,
   category,
   label,
-  fullWidth = true,
   data,
   placeholder,
   updateFormData,
@@ -35,6 +34,7 @@ const FormDropdown: FC<IFormDropdown> = ({
         id={name}
         className=" block w-[680px] bg-white-off text-black border border-blue-dark  border-opacity-10 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-blue"
         onChange={(event) =>
+          updateFormData &&
           updateFormData(category, { [name]: parseInt(event.target.value) })
         }
       >

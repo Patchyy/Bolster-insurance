@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
-import { IShipment } from '../../types/all';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { IShipment } from "../../types/all";
+import { Link } from "react-router-dom";
 
 const DashboardOverviewPage = () => {
   const [shipments, setShipments] = useState<IShipment[]>([]);
 
   useEffect(() => {
     const getShipments = async () => {
-      const res = await fetch('http://localhost:5000/shipments');
+      const res = await fetch("http://localhost:5000/shipments");
       const data = await res.json();
 
       setShipments(data);
@@ -15,10 +15,6 @@ const DashboardOverviewPage = () => {
 
     getShipments();
   }, []);
-
-  useEffect(() => {
-    console.log('Shipments:', shipments);
-  }, [shipments]);
 
   return (
     <div id="shipments" className="bg-white-off h-screen">
@@ -79,7 +75,7 @@ const DashboardOverviewPage = () => {
                           {shipment.destination.country}
                         </td>
                         <td className="px-6 py-4">
-                          {shipment.origin.value.valuta === 'eur'} {'€ '}
+                          {shipment.origin.value.valuta === "eur"} {"€ "}
                           {shipment.origin.value.value}
                         </td>
                         <td className="px-6 py-4">{shipment.movingCompany}</td>

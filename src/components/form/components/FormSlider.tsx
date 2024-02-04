@@ -1,5 +1,5 @@
-import { FC, useEffect, useState } from 'react';
-import { TShipmentCategory, TUpdateFormData } from '../../../types/all';
+import { FC, useEffect, useState } from "react";
+import { TShipmentCategory, TUpdateFormData } from "../../../types/all";
 
 interface IFormSlider {
   name: string;
@@ -38,7 +38,7 @@ const FormSlider: FC<IFormSlider> = ({
   };
 
   return (
-    <div className="relative mb-16 w-[1032px] mx-auto">
+    <div className="relative mb-16 w-full mx-auto">
       <label
         htmlFor="large-range"
         className="block mb-6 text-3xl font-medium text-blue text-center"

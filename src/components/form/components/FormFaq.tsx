@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import listimg from '../../../assets/Bolster_Logo_Color.svg';
+import { FC } from "react";
+import listimg from "../../../assets/Bolster_Logo_Color.svg";
 
 interface IFormFaq {
   title: string;
@@ -15,7 +15,7 @@ const FormFaq: FC<IFormFaq> = ({ title, content, footer }) => {
           <img
             src={listimg}
             alt=""
-            className="w-6 h-6 text-gray-500 transition group-open:rotate-180"
+            className="w-6 h-6 text-gray-500 transition group-open:rotate-90"
           />
           <span className="text-lg">{title}</span>
         </summary>

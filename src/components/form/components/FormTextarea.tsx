@@ -1,14 +1,14 @@
-import { FC } from 'react';
-import { TShipmentCategory, TUpdateFormData } from '../../../types/all';
+import { FC } from "react";
+import { TUpdateFormData } from "../../../types/all";
 
 interface IFormTextarea {
   name: string;
-  category: TShipmentCategory;
+  category: any;
   label: string;
   placeholder: string;
   fullWidth?: boolean;
   value?: string;
-  updateFormData: TUpdateFormData;
+  updateFormData?: TUpdateFormData;
 }
 
 const FormTextarea: FC<IFormTextarea> = ({
@@ -35,6 +35,7 @@ const FormTextarea: FC<IFormTextarea> = ({
         placeholder={placeholder}
         value={value}
         onChange={(event) =>
+          updateFormData &&
           updateFormData(category, { [name]: event.target.value })
         }
       />

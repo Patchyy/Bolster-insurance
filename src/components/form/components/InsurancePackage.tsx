@@ -1,10 +1,6 @@
-import { FC, useEffect, useState } from 'react';
-import {
-  IShipmentPackage,
-  TShipmentCategory,
-  TUpdateFormData,
-} from '../../../types/all';
-import classNames from 'classnames';
+import { FC } from "react";
+import { IShipmentPackage } from "../../../types/all";
+import classNames from "classnames";
 
 interface IIsurancePackage {
   handleClick: (insurancePackage: string) => void;
@@ -20,10 +16,10 @@ const InsurancePackage: FC<IIsurancePackage> = ({
   return (
     <div
       className={classNames({
-        'flex flex-col w-[300px] h-[720px] rounded-lg shadow-md border border-blue-dark border-opacity-10 relative':
+        "flex flex-col w-[300px] h-[720px] rounded-lg shadow-md border border-blue-dark border-opacity-10 relative":
           true,
-        'border-green border-2 opacity-100 shadow-none':
-          selectedPackage == insuranceDataItem.packageName,
+        "border-green border-2 opacity-100 shadow-none":
+          selectedPackage === insuranceDataItem.packageName,
       })}
       onClick={() => handleClick(insuranceDataItem.packageName)}
     >
@@ -57,13 +53,13 @@ const InsurancePackage: FC<IIsurancePackage> = ({
           {insuranceDataItem.extraOptions?.map((item, index) => (
             <div key={index}>
               <input
-                id={`checkbox-${index}`} // Unieke id toegevoegd
+                id={`checkbox-${index}`}
                 type="checkbox"
                 value=""
                 className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 align-middle"
               />
               <label
-                htmlFor={`checkbox-${index}`} // Gekoppeld aan het juiste input-element
+                htmlFor={`checkbox-${index}`}
                 className="ms-2 text-sm font-medium text-gray-900"
               >
                 {item}
