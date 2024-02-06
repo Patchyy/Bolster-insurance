@@ -69,13 +69,22 @@ export type TShipmentCategoryData =
   | IShipmentSpecialItems
   | IShipmentPackage;
 
+export interface IShipmentClaims {
+  id: number;
+  title: string;
+  value: string;
+  damage: string;
+  status: string;
+}
+
 export type TShipmentCategory =
   | "origin"
   | "destination"
   | "family"
   | "movingCompany"
   | "specialItems"
-  | "package";
+  | "package"
+  | "claims";
 
 export interface IShipment {
   id?: number;
@@ -85,6 +94,7 @@ export interface IShipment {
   movingCompany: IShipmentMovingCompany;
   specialItems: IShipmentSpecialItems;
   package: IShipmentPackage;
+  claims: IShipmentClaims[];
 }
 
 export type TUpdateFormData = (category: any, newData: any) => void;

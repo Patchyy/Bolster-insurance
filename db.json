@@ -50,7 +50,8 @@
           "value": 1425,
           "valuta": "eur"
         }
-      }
+      },
+      "claims": []
     }
   ]
 }

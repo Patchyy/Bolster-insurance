@@ -144,6 +144,7 @@ const Form: FC<IForm> = ({ step, changeStep }) => {
       included: ["", ""],
       extraOptions: [],
     },
+    claims: [],
   });
 
   const updateFormData = (category: TShipmentCategory, newData: any) => {

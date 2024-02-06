@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import { FC } from "react";
-import { Link } from "react-router-dom";
 
 interface IFormLayout {
   step: number;
@@ -47,13 +46,6 @@ const FormLayout: FC<IFormLayout> = ({ step, children }) => {
       <main className="bg-white-off">
         <div className="relative top-[-70px] container px-[40px] md:px-[80px] lg:px-[200px] mx-auto bg-white h-auto">
           {children}
-
-          {/* <div className="w-full px-6 py-20">
-        <div className="">
-          <button onClick={() => changeStep(step - 1)}>Omlaag</button>
-          <button onClick={() => changeStep(step + 1)}>Omhoog</button>
-        </div>
-        </div> */}
         </div>
       </main>
     </>

@@ -84,14 +84,16 @@ const AdditionalInfo: FC<IFormStep> = ({ updateFormData, formData }) => {
           </div>
         )}
         <h2 className="text-xl text-center">The house you are moving to. </h2>
-        <FormDropdown
-          name="house"
-          category="destination"
-          label="Select house type"
-          placeholder="select house type"
-          updateFormData={updateFormData}
-          data={housingData}
-        />
+        <div className="w-[680px] py-2">
+          <FormDropdown
+            name="house"
+            category="destination"
+            label="Select house type"
+            placeholder="select house type"
+            updateFormData={updateFormData}
+            data={housingData}
+          />
+        </div>
         <div className="w-[680px] py-2">
           <FormInput
             name="country"
@@ -146,14 +148,16 @@ const AdditionalInfo: FC<IFormStep> = ({ updateFormData, formData }) => {
             </div>
           </div>
         )}
-        <FormDropdown
-          name="movingCompany"
-          category="movingCompany"
-          placeholder="select moving company"
-          label="Who are you moving with?"
-          updateFormData={updateFormData}
-          data={[{ id: 1, title: "Voerman" }]}
-        />
+        <div className="w-[680px] py-2">
+          <FormDropdown
+            name="movingCompany"
+            category="movingCompany"
+            placeholder="select moving company"
+            label="Who are you moving with?"
+            updateFormData={updateFormData}
+            data={[{ id: 1, title: "Voerman" }]}
+          />
+        </div>
       </div>
     </div>
   );

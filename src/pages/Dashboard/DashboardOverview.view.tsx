@@ -37,10 +37,61 @@ const DashboardOverviewPage = () => {
             </div>
           </div>
           <div className="basis-6/12 mt-16 w-fit ml-40">
-            <div className="overflow-x-auto py-3">
+            <div className="flex flex-col gap-20 overflow-x-auto py-3">
               <table className="w-5\/12 text-sm text-left rtl:text-right text-black">
                 <caption className="bg-blue text-left text-white font-medium text-l px-6 py-2 rounded-t-lg">
                   Shipments
+                </caption>
+                <thead className="bg-white text-xs text-black uppercase  ">
+                  <tr>
+                    <th scope="col" className="px-6 py-3">
+                      Origin
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      Destination
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      Value
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      Moving company
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      Detail
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {shipments.map((shipment) => {
+                    return (
+                      <tr className="bg-white-off border-b " key={shipment.id}>
+                        <td
+                          scope="row"
+                          className="px-6 py-4 whitespace-nowrap "
+                        >
+                          {shipment.origin.country}
+                        </td>
+                        <td className="px-6 py-4">
+                          {shipment.destination.country}
+                        </td>
+                        <td className="px-6 py-4">
+                          {shipment.origin.value.valuta === "eur"} {"€ "}
+                          {shipment.origin.value.value}
+                        </td>
+                        <td className="px-6 py-4">{shipment.movingCompany}</td>
+                        <td className="px-6 py-4 ">
+                          <Link to={`/dashboard/overview/${shipment.id}`}>
+                            Details
+                          </Link>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+              <table className="w-5\/12 text-sm text-left rtl:text-right text-black">
+                <caption className="bg-blue text-left text-white font-medium text-l px-6 py-2 rounded-t-lg">
+                  Storage
                 </caption>
                 <thead className="bg-white text-xs text-black uppercase  ">
                   <tr>

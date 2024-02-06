@@ -21,7 +21,7 @@ const FormDropdown: FC<IFormDropdown> = ({
   updateFormData,
 }) => {
   return (
-    <div className="flex flex-wrap py-5 align-center flex-col ">
+    <div className="flex flex-wrap py-5 align-center flex-col w-full">
       <label
         htmlFor={name}
         className="block tracking-wide text-black text-xs font-bold font-roboto mb-2"
@@ -32,7 +32,7 @@ const FormDropdown: FC<IFormDropdown> = ({
         defaultValue={placeholder}
         name={name}
         id={name}
-        className=" block w-[680px] bg-white-off text-black border border-blue-dark  border-opacity-10 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-blue"
+        className=" block w-full bg-white-off text-black border border-blue-dark  border-opacity-10 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-blue"
         onChange={(event) =>
           updateFormData &&
           updateFormData(category, { [name]: parseInt(event.target.value) })
