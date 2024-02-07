@@ -1,9 +1,13 @@
-import { useEffect, useState } from "react";
-import { IShipment, IShipmentClaims } from "../../types/all";
-import { useParams } from "react-router";
-import Button from "../../components/Button";
-import FormInput from "../../components/form/components/FormInput";
-import FormDropdown from "../../components/form/components/FormDropdown";
+import { useEffect, useState } from 'react';
+import { IShipment, IShipmentClaims } from '../../types/all';
+import { useParams } from 'react-router';
+import Button from '../../components/Button';
+import FormInput from '../../components/form/components/FormInput';
+import FormDropdown from '../../components/form/components/FormDropdown';
+import phone from '../../assets/phone.svg';
+import calander from '../../assets/Calendar.svg';
+import insurancechoice from '../../assets/Insuranceoptions.svg';
+import shipmentinfo from '../../assets/Shipment info.svg';
 
 const DashboardDetailPage = () => {
   const [shipment, setShipment] = useState<IShipment | null>(null);
@@ -27,7 +31,7 @@ const DashboardDetailPage = () => {
   }, [params.shipmentId]);
 
   useEffect(() => {
-    console.log("Shipments:", shipment);
+    console.log('Shipments:', shipment);
   }, [shipment]);
 
   const handleShowClaimForm = (value: boolean) => {
@@ -37,10 +41,10 @@ const DashboardDetailPage = () => {
   const addClaim = () => {
     const claim = {
       id: 1,
-      title: "",
-      value: "",
-      damage: "Rotten",
-      status: "Pending",
+      title: 'Antique chair',
+      value: '200',
+      damage: 'Rotten',
+      status: 'Pending',
     };
 
     console.log(claim);
@@ -51,123 +55,144 @@ const DashboardDetailPage = () => {
 
   return (
     <div id="shipments" className="bg-white-off h-screen">
-      <div className="header bg-blue-dark w-full h-56 z-0 flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold text-white">Your shipment</h1>
-        <p className="text-white">See the specific details of your shipment</p>
+      <div className="header bg-blue-dark w-full h-56 z-0 flex flex-col items-center justify-center ">
+        <h1 className="text-4xl font-bold text-white relative top-[-40px]">
+          Your shipment
+        </h1>
+        <p className="text-white relative top-[-30px]">
+          See the specific details of your shipment
+        </p>
       </div>
-      <div className="xl:container md:mx-auto bg-white h-screen">
+      <div className="xl:container md:mx-auto bg-white h-screen relative top-[-70px]">
         {!showClaimForm ? (
-          <div className="flex flex-row">
-            <div className="basis-5/12  mt-12">
-              <h1 className="text-2xl px-20 py-3">
-                In need of personal contact?
-              </h1>
-              <p className="px-20 py-3">
-                No problem we are here for you! Plan a meeting in the calendar
-                below and we will help you with all your worries!
-              </p>
-              <div className="bg-white-off mx-20 py-3">
-                <p className="text-2xl font-bold px-4">May</p>
-              </div>
+          <>
+            <div>
+              <img src={shipmentinfo} alt="" className="m-auto" />
             </div>
-            <div className="basis-6/12 mt-16 w-fit ml-40">
-              <div className="flex flex-col gap-20 overflow-x-auto py-3">
-                <table className="w-5\/12 text-sm text-left rtl:text-right text-black">
-                  <caption className="bg-blue text-left text-white font-medium text-l px-6 py-2 rounded-t-lg">
-                    Special objects
-                  </caption>
-                  <thead className="bg-white text-xs text-black uppercase  ">
-                    <tr>
-                      <th scope="col" className="px-6 py-3">
-                        Title
-                      </th>
-                      <th scope="col" className="px-6 py-3">
-                        Replacement value
-                      </th>
-                      <th scope="col" className="px-6 py-3">
-                        State
-                      </th>
-                      <th scope="col" className="px-6 py-3">
-                        Doc
-                      </th>
-                      <th scope="col" className="px-6 py-3">
-                        Description
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {shipment?.specialItems.map((specialItem) => {
-                      return (
-                        <tr
-                          className="bg-white-off border-b "
-                          key={specialItem.id}
-                        >
-                          <td className="px-6 py-4 whitespace-nowrap ">
-                            {specialItem.name}
-                          </td>
-                          <td className="px-6 py-4">
-                            {specialItem.replacemenValue.valuta === "eur"}{" "}
-                            {"€ "}
-                            {specialItem.replacemenValue.value}
-                          </td>
-                          <td className="px-6 py-4">{specialItem.condition}</td>
-                          <td className="px-6 py-4">3</td>
-                          <td className="px-6 py-4 ">
-                            {specialItem.description}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-                <table className="w-5\/12 text-sm text-left rtl:text-right text-black">
-                  <caption className="bg-blue text-left text-white font-medium text-l px-6 py-2 rounded-t-lg">
-                    Claims
-                  </caption>
-                  <thead className="bg-white text-xs text-black uppercase  ">
-                    <tr>
-                      <th scope="col" className="px-6 py-3">
-                        Title
-                      </th>
-                      <th scope="col" className="px-6 py-3">
-                        Replacement value
-                      </th>
-                      <th scope="col" className="px-6 py-3">
-                        Damage
-                      </th>
-                      <th scope="col" className="px-6 py-3">
-                        Doc
-                      </th>
-                      <th scope="col" className="px-6 py-3">
-                        Status
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {claims.length ? (
-                      claims.map((specialItem) => {
+            <div className="flex flex-row">
+              <div className="basis-5/12  mt-12 px-20  gap-[20px]">
+                <img src={insurancechoice} alt="calander" className="py-4" />
+              </div>
+              <div className="basis-6/12 mt-16 w-fit">
+                <div className="flex flex-col gap-20 overflow-x-auto py-3">
+                  <table className="w-5\/12 text-sm text-left rtl:text-right text-black">
+                    <caption className="bg-blue text-left text-white font-medium text-l px-6 py-2 rounded-t-lg">
+                      Special objects
+                    </caption>
+                    <thead className="bg-white text-xs text-black uppercase  ">
+                      <tr>
+                        <th scope="col" className="px-6 py-3">
+                          Title
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                          Replacement value
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                          State
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                          Doc
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                          Description
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {shipment?.specialItems.map((specialItem) => {
                         return (
                           <tr
                             className="bg-white-off border-b "
                             key={specialItem.id}
                           >
                             <td className="px-6 py-4 whitespace-nowrap ">
-                              {specialItem.title}
+                              {specialItem.name}
                             </td>
-                            <td className="px-6 py-4">€ {specialItem.value}</td>
-                            <td className="px-6 py-4">{specialItem.damage}</td>
+                            <td className="px-6 py-4">
+                              {specialItem.replacemenValue.valuta === 'eur'}{' '}
+                              {'€ '}
+                              {specialItem.replacemenValue.value}
+                            </td>
+                            <td className="px-6 py-4">
+                              {specialItem.condition}
+                            </td>
                             <td className="px-6 py-4">3</td>
-                            <td className="px-6 py-4 ">{specialItem.status}</td>
+                            <td className="px-6 py-4 ">
+                              {specialItem.description}
+                            </td>
                           </tr>
                         );
-                      })
+                      })}
+                    </tbody>
+                  </table>
+                  <table className="w-5\/12 text-sm text-left rtl:text-right text-black">
+                    <caption className="bg-blue text-left text-white font-medium text-l px-6 py-2 rounded-t-lg">
+                      Claims
+                    </caption>
+                    <thead className="bg-white text-xs text-black uppercase  ">
+                      <tr>
+                        <th scope="col" className="px-6 py-3">
+                          Title
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                          Replacement value
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                          Damage
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                          Doc
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                          Status
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {claims.length ? (
+                        claims.map((specialItem) => {
+                          return (
+                            <tr
+                              className="bg-white-off border-b "
+                              key={specialItem.id}
+                            >
+                              <td className="px-6 py-4 whitespace-nowrap ">
+                                {specialItem.title}
+                              </td>
+                              <td className="px-6 py-4">
+                                € {specialItem.value}
+                              </td>
+                              <td className="px-6 py-4">
+                                {specialItem.damage}
+                              </td>
+                              <td className="px-6 py-4">3</td>
+                              <td className="px-6 py-4 ">
+                                {specialItem.status}
+                              </td>
+                            </tr>
+                          );
+                        })
+                      ) : (
+                        <td colSpan={5}>
+                          <div className="flex flex-col justify-center items-center h-auto w-[220px] text-center mx-auto py-2">
+                            <p className="text-lg">No claims yet!</p>
+                            <p className="py-2">
+                              Anything broken? Press the button down below to
+                              file a claim
+                            </p>
+                            <Button
+                              type="blue"
+                              text="File a claim"
+                              onClick={() => handleShowClaimForm(true)}
+                            />
+                          </div>
+                        </td>
+                      )}
+                    </tbody>
+                    {!claims.length ? (
+                      <></>
                     ) : (
-                      <div className="flex flex-col justify-center items-center w-full h-auto">
-                        <p>No claims yet!</p>
-                        <p>
-                          Anything broken? Press the button down below to file a
-                          claim
-                        </p>
+                      <div className="mt-10">
                         <Button
                           type="blue"
                           text="File a claim"
@@ -175,22 +200,11 @@ const DashboardDetailPage = () => {
                         />
                       </div>
                     )}
-                  </tbody>
-                  {!claims.length ? (
-                    <></>
-                  ) : (
-                    <div className="mt-10">
-                      <Button
-                        type="blue"
-                        text="File a claim"
-                        onClick={() => handleShowClaimForm(true)}
-                      />
-                    </div>
-                  )}
-                </table>
+                  </table>
+                </div>
               </div>
             </div>
-          </div>
+          </>
         ) : (
           <div className="flex flex-col w-full h-auto">
             <div className="text-center w-full h-auto mb-10 mt-5">
@@ -201,7 +215,7 @@ const DashboardDetailPage = () => {
                 2 weeks.
               </p>
             </div>
-            <form className="flex flex-col w-full h-auto gap-5">
+            <form className="flex flex-col w-[1032px] h-auto gap-5 m-auto">
               <div className="">
                 <FormDropdown
                   name="condition"
@@ -211,23 +225,7 @@ const DashboardDetailPage = () => {
                   data={[
                     {
                       id: 0,
-                      title: "Perfect Condition",
-                    },
-                    {
-                      id: 1,
-                      title: "Very good condition",
-                    },
-                    {
-                      id: 2,
-                      title: "Good condition",
-                    },
-                    {
-                      id: 3,
-                      title: "Average condition",
-                    },
-                    {
-                      id: 4,
-                      title: "Bad condition",
+                      title: 'Antique chair',
                     },
                   ]}
                 />
@@ -236,7 +234,7 @@ const DashboardDetailPage = () => {
                 <FormInput
                   name="value"
                   category="replacemenValue"
-                  label="Replacement value at destination"
+                  label="Object name"
                   placeholder="example"
                 />
               </div>
@@ -244,7 +242,7 @@ const DashboardDetailPage = () => {
                 <FormInput
                   name="value"
                   category="replacemenValue"
-                  label="Replacement value at destination"
+                  label="Replacement value"
                   placeholder="example"
                 />
               </div>
@@ -252,28 +250,28 @@ const DashboardDetailPage = () => {
                 <FormDropdown
                   name="condition"
                   category="conditions"
-                  label="Item condition"
+                  label="Damage type"
                   placeholder="select the condition"
                   data={[
                     {
                       id: 0,
-                      title: "Perfect Condition",
+                      title: 'Rotten',
                     },
                     {
                       id: 1,
-                      title: "Very good condition",
+                      title: 'Broken',
                     },
                     {
                       id: 2,
-                      title: "Good condition",
+                      title: 'Missing',
                     },
                     {
                       id: 3,
-                      title: "Average condition",
+                      title: 'Dented',
                     },
                     {
                       id: 4,
-                      title: "Bad condition",
+                      title: 'Shatterd',
                     },
                   ]}
                 />
@@ -282,7 +280,7 @@ const DashboardDetailPage = () => {
                 <FormInput
                   name="value"
                   category="replacemenValue"
-                  label="Replacement value at destination"
+                  label="Damage value"
                   placeholder="example"
                 />
               </div>

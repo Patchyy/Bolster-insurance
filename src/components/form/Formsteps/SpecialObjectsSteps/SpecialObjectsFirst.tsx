@@ -1,8 +1,8 @@
-import { FC } from "react";
-import { IStepData } from "../SpecialObjects";
-import FormList from "../../components/FormList";
-import Button from "../../../Button";
-import { TSpecialItemHandles } from "../../../../types/all";
+import { FC } from 'react';
+import { IStepData } from '../SpecialObjects';
+import FormList from '../../components/FormList';
+import Button from '../../../Button';
+import { TSpecialItemHandles } from '../../../../types/all';
 
 interface ISpecialObjectsFirst {
   stepData: IStepData;
@@ -39,12 +39,12 @@ const SpecialObjectsFirst: FC<ISpecialObjectsFirst> = ({
           onClick={() => hasSpecialItems(stepData.handle, false)}
         />
       </div>
-      <div className="flex flex-col justify-center items-center pt-[56px] ">
+      <div className="flex flex-col justify-center items-center pt-[56px] pb-[80px]">
         <h2 className="text-xl w-1/2">
           Not sure what we consider a instrument? below are a few examples:
         </h2>
 
-        <ul className="w-1/2 space-y-6 text-black list-inside text-xl pt-[24px] ">
+        <ul className="w-1/2 space-y-6 text-black list-inside text-xl pt-[24px]">
           {stepData.examples.map((example, index) => {
             return <FormList listItem={example} key={index} />;
           })}

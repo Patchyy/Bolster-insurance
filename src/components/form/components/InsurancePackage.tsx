@@ -1,6 +1,6 @@
-import { FC } from "react";
-import { IShipmentPackage } from "../../../types/all";
-import classNames from "classnames";
+import { FC } from 'react';
+import { IShipmentPackage } from '../../../types/all';
+import classNames from 'classnames';
 
 interface IIsurancePackage {
   handleClick: (insurancePackage: string) => void;
@@ -16,16 +16,16 @@ const InsurancePackage: FC<IIsurancePackage> = ({
   return (
     <div
       className={classNames({
-        "flex flex-col w-[300px] h-[720px] rounded-lg shadow-md border border-blue-dark border-opacity-10 relative":
+        'flex flex-col w-[300px] h-[720px] rounded-lg shadow-md border border-blue-dark border-opacity-10 relative':
           true,
-        "border-green border-2 opacity-100 shadow-none":
+        'border-green border-2 opacity-100 shadow-none':
           selectedPackage === insuranceDataItem.packageName,
       })}
       onClick={() => handleClick(insuranceDataItem.packageName)}
     >
       <div className="bg-blue w-[299px] text-center rounded-t-lg absolute -top-4 ">
         {insuranceDataItem.ourAdvice && (
-          <span className="text-white font-bold">recommend</span>
+          <span className="text-white font-bold">recommended</span>
         )}
       </div>
       <h2 className="font-bold text-xl text-center pt-8 ">

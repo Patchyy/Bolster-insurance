@@ -1,22 +1,22 @@
-import { FC, useState } from "react";
-import ValueEstimate from "./Formsteps/ValueEstimate";
-import AdditionalInfo from "./Formsteps/AdditionalInfo";
-import SpecialObjects from "./Formsteps/SpecialObjects";
-import Insurance from "./Formsteps/Insurance";
+import { FC, useState } from 'react';
+import ValueEstimate from './Formsteps/ValueEstimate';
+import AdditionalInfo from './Formsteps/AdditionalInfo';
+import SpecialObjects from './Formsteps/SpecialObjects';
+import Insurance from './Formsteps/Insurance';
 
-import villaImage from "../../assets/house-type-villa.svg";
-import rowImage from "../../assets/house-type-rowhouse.svg";
-import detachedImage from "../../assets/house-type-detachedhouse.svg";
-import appartmentImage from "../../assets/house-type-appartments.svg";
+import villaImage from '../../assets/house-type-villa.svg';
+import rowImage from '../../assets/house-type-rowhouse.svg';
+import detachedImage from '../../assets/house-type-detachedhouse.svg';
+import appartmentImage from '../../assets/house-type-appartments.svg';
 
-import person from "../../assets/PersonOne.svg";
-import persons from "../../assets/personTwo.svg";
-import smallFam from "../../assets/small-family.svg";
-import midFam from "../../assets/medium-family.svg";
-import { IShipment, TShipmentCategory, TUpdateFormData } from "../../types/all";
-import Button from "../Button";
-import Summary from "./Formsteps/Summary";
-import { redirect, useNavigate } from "react-router-dom";
+import person from '../../assets/PersonOne.svg';
+import persons from '../../assets/personTwo.svg';
+import smallFam from '../../assets/small-family.svg';
+import midFam from '../../assets/medium-family.svg';
+import { IShipment, TShipmentCategory, TUpdateFormData } from '../../types/all';
+import Button from '../Button';
+import Summary from './Formsteps/Summary';
+import { redirect, useNavigate } from 'react-router-dom';
 
 export interface ISelectorType {
   id: number;
@@ -27,23 +27,23 @@ export interface ISelectorType {
 export const housingData: ISelectorType[] = [
   {
     id: 1,
-    title: "Appartments",
+    title: 'Appartments',
     image: appartmentImage,
   },
   {
     id: 2,
-    title: "Row house",
+    title: 'Regular house',
     image: rowImage,
   },
 
   {
     id: 3,
-    title: "Detached house",
+    title: 'Detached house',
     image: detachedImage,
   },
   {
     id: 4,
-    title: "Villa",
+    title: 'Villa',
     image: villaImage,
   },
 ];
@@ -51,23 +51,23 @@ export const housingData: ISelectorType[] = [
 export const familyData: ISelectorType[] = [
   {
     id: 1,
-    title: "One person",
+    title: 'One person',
     image: person,
   },
   {
     id: 2,
-    title: "Two persons",
+    title: 'Two persons',
     image: persons,
   },
 
   {
     id: 3,
-    title: "Small family",
+    title: 'Small family',
     image: smallFam,
   },
   {
     id: 4,
-    title: "Medium family",
+    title: 'Medium family',
     image: midFam,
   },
 ];
@@ -108,26 +108,26 @@ const Form: FC<IForm> = ({ step, changeStep }) => {
 
   const [formData, setFormData] = useState<IShipment>({
     origin: {
-      country: "",
+      country: '',
       size: 0,
-      zip: "",
-      city: "",
-      street: "",
-      housenumber: "",
-      addition: "",
+      zip: '',
+      city: '',
+      street: '',
+      housenumber: '',
+      addition: '',
       house: null,
       value: {
         value: 0,
-        valuta: "",
+        valuta: '',
       },
     },
     destination: {
-      country: "",
-      zip: "",
-      city: "",
-      street: "",
-      housenumber: "",
-      addition: "",
+      country: '',
+      zip: '',
+      city: '',
+      street: '',
+      housenumber: '',
+      addition: '',
       house: null,
     },
     family: {
@@ -135,13 +135,13 @@ const Form: FC<IForm> = ({ step, changeStep }) => {
       children: 0,
       baby: 0,
     },
-    movingCompany: "",
+    movingCompany: '',
     specialItems: [],
     package: {
-      packageName: "",
-      subname: " ",
-      value: { value: 0, valuta: "" },
-      included: ["", ""],
+      packageName: '',
+      subname: ' ',
+      value: { value: 0, valuta: '' },
+      included: ['', ''],
       extraOptions: [],
     },
     claims: [],
@@ -150,10 +150,15 @@ const Form: FC<IForm> = ({ step, changeStep }) => {
   const updateFormData = (category: TShipmentCategory, newData: any) => {
     let newFormData = formData;
 
-    if (category === "specialItems") {
+    if (category === 'specialItems') {
       newFormData = {
         ...newFormData,
         [category]: [...newData],
+      };
+    } else if (category === 'movingCompany') {
+      newFormData = {
+        ...newFormData,
+        movingCompany: 'Voerman',
       };
     } else {
       newFormData = {
@@ -201,17 +206,17 @@ const Form: FC<IForm> = ({ step, changeStep }) => {
 
   const submitForm = async () => {
     try {
-      await fetch("http://localhost:5000/shipments", {
-        method: "POST",
+      await fetch('http://localhost:5000/shipments', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
 
-      navigate("/dashboard");
+      navigate('/dashboard');
     } catch (error) {
-      console.error("Error:", error);
+      console.error('Error:', error);
     }
   };
 

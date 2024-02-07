@@ -1,11 +1,11 @@
-import { FC, useState } from "react";
-import { familyData, housingData } from "../Form";
-import FormIntro from "../components/FormIntro";
-import FormInput from "../components/FormInput";
-import FormSelector from "../components/FormSelector";
-import FormFaq from "../components/FormFaq";
-import FormSlider from "../components/FormSlider";
-import { IFormStep } from "../../../types/all";
+import { FC, useState } from 'react';
+import { familyData, housingData } from '../Form';
+import FormIntro from '../components/FormIntro';
+import FormInput from '../components/FormInput';
+import FormSelector from '../components/FormSelector';
+import FormFaq from '../components/FormFaq';
+import FormSlider from '../components/FormSlider';
+import { IFormStep } from '../../../types/all';
 
 const ValueEstimate: FC<IFormStep> = ({ updateFormData, formData }) => {
   const [selectedHouse, setSelectedHouse] = useState<number>(0);
@@ -14,7 +14,7 @@ const ValueEstimate: FC<IFormStep> = ({ updateFormData, formData }) => {
   const handleHouseClick = (id: number) => {
     setSelectedHouse(id);
 
-    updateFormData("origin", { house: id });
+    updateFormData('origin', { house: id });
   };
 
   const handleFamilyClick = (id: number) => {
@@ -42,7 +42,7 @@ const ValueEstimate: FC<IFormStep> = ({ updateFormData, formData }) => {
         family.children = 2;
     }
 
-    updateFormData("family", { ...family });
+    updateFormData('family', { ...family });
   };
 
   const jsxFooter = <button className="btn">Plan meeting</button>;
@@ -73,6 +73,9 @@ const ValueEstimate: FC<IFormStep> = ({ updateFormData, formData }) => {
         >
           House tpye
         </label> */}
+        <h1 className="block tracking-wide text-black font-bold font-roboto mb-2 text-lg">
+          What does your house look like?
+        </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 w-full gap-[24px] py-5 cursor-pointer">
           {housingData.map((housingDataItem) => {
             return (
@@ -97,7 +100,10 @@ const ValueEstimate: FC<IFormStep> = ({ updateFormData, formData }) => {
           />
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 w-full gap-[24px] py-5 cursor-pointer">
+      <h1 className="block tracking-wide text-black font-bold font-roboto text-lg">
+        With who do you live?
+      </h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 w-full gap-[24px] py-8 cursor-pointer">
         {familyData.map((familyDataItem) => {
           return (
             <FormSelector
@@ -143,22 +149,22 @@ const ValueEstimate: FC<IFormStep> = ({ updateFormData, formData }) => {
           <div>
             <ul className="w-2/3 mx-auto mt-8 rounded-xl">
               <FormFaq
-                title={"Had contact with your mover already?"}
+                title={'Had contact with your mover already?'}
                 content={
-                  "Have you had contact with a mover already and do you know your m³ / ft³ ?"
+                  'Have you had contact with a mover already and do you know your m³ / ft³ ?'
                 }
                 footer={jsxFooter}
               />
               <FormFaq
-                title={"Have you looked at your Home contents insurance?"}
+                title={'Have you looked at your Home contents insurance?'}
                 content={
-                  "Your home right now probably has a home contents insurance this is also based on the value of your household contents. This could give you a estimate of how much your stuff is worth "
+                  'Your home right now probably has a home contents insurance this is also based on the value of your household contents. This could give you a estimate of how much your stuff is worth '
                 }
               />
               <FormFaq
-                title={"Need help?"}
+                title={'Need help?'}
                 content={
-                  "Don’t worry. We understand it can be difficult to estimate how much your stuff is worth. We are here for you. Call the number below to speak to an expert or plan a meeting with an proffesional."
+                  'Don’t worry. We understand it can be difficult to estimate how much your stuff is worth. We are here for you. Call the number below to speak to an expert or plan a meeting with an proffesional.'
                 }
                 footer={jsxFooter2}
               />
